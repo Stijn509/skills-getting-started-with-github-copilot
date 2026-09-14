@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
       await fetchActivities();
     } catch (error) {
       removeButton.disabled = false;
+      messageDiv.textContent = error.message || "Unable to unregister participant";
+      messageDiv.className = "error";
+      messageDiv.classList.remove("hidden");
       console.error("Error unregistering participant:", error);
     }
   });
